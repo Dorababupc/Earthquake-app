@@ -24,9 +24,9 @@ public class EarthquakeActivity extends AppCompatActivity
 
     private static final String LOG_TAG = EarthquakeActivity.class.getName();
 
-    /** URL for earthquake data from the USGS dataset */
+    // URL for earthquake data from the USGS dataset
     private static final String USGS_REQUEST_URL =
-            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&&limit=20";
+            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&orderby=time&&limit=40";
 
     /**
      * Constant value for the earthquake loader ID. We can choose any integer.
@@ -34,10 +34,10 @@ public class EarthquakeActivity extends AppCompatActivity
      */
     private static final int EARTHQUAKE_LOADER_ID = 1;
 
-    /** Adapter for the list of earthquakes */
+
     private EarthquakeAdapter mAdapter;
 
-    /** TextView that is displayed when the list is empty */
+
     private TextView mEmptyStateTextView;
 
     @Override
@@ -45,7 +45,6 @@ public class EarthquakeActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        // Find a reference to the {@link ListView} in the layout
         ListView earthquakeListView = (ListView) findViewById(R.id.list);
 
         mEmptyStateTextView = (TextView) findViewById(R.id.empty_view);
@@ -54,12 +53,9 @@ public class EarthquakeActivity extends AppCompatActivity
         // Create a new adapter that takes an empty list of earthquakes as input
         mAdapter = new EarthquakeAdapter(this, new ArrayList<EarthQuake>());
 
-        // Set the adapter on the {@link ListView}
-        // so the list can be populated in the user interface
+        // Set the adapter on the ListView so the list can be populated in the user interface
         earthquakeListView.setAdapter(mAdapter);
 
-        // Set an item click listener on the ListView, which sends an intent to a web browser
-        // to open a website with more information about the selected earthquake.
         earthquakeListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
