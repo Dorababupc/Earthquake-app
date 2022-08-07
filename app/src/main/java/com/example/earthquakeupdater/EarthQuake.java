@@ -1,6 +1,6 @@
 package com.example.earthquakeupdater;
 
- // An EarthQuake object contains information about the earthquake.
+// An EarthQuake object contains information about the earthquake.
 
 public class EarthQuake {
 

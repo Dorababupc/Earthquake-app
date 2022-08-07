@@ -28,6 +28,7 @@ public class EarthquakeAdapter extends ArrayAdapter<EarthQuake> {
     private static final String LOCATION_SEPARATOR = " of ";
 
     /**
+     *
      * Constructs a new EarthquakeAdapter with params as context of the app,earthquakes is the list of earthquakes.
      */
     public EarthquakeAdapter(Context context, List<EarthQuake> earthquakes) {
